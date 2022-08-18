@@ -18,6 +18,6 @@ API: [Airbnb](https://rapidapi.com/DataCrawler/api/airbnb19/)
 
 ## Scripts
 
-npm install
+npm install  
 npm start
 
