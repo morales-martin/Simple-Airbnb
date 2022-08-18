@@ -11,3 +11,13 @@ Backend: Node.js, Express.js
 Database: MongoDB  
 Hosting: AWS  
 API: [Airbnb](https://rapidapi.com/DataCrawler/api/airbnb19/)
+
+## Project Management 
+
+[Trello](https://trello.com/b/32vVeFMl/project)
+
+## Scripts
+
+npm install
+npm start
+
