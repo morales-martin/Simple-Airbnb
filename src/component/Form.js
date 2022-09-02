@@ -1,5 +1,6 @@
 import React from "react";
 import "./Form.css";
+import Button from "../ui/Button"
 
 const Form = () => {
   return (
@@ -42,7 +43,7 @@ const Form = () => {
           <label>Number of Guests</label>
           <input type="number" className="form-input" name="Number of Guests" />
         </div>
-        <button type="submit" className="search-btn">Search</button>
+        <Button type="submit" className="search-btn">Search</Button>
       </form>
     </div>
     </div>
