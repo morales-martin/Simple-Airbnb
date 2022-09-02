@@ -3,13 +3,14 @@ import "./Form.css";
 
 const Form = () => {
   return (
+    <div className="page-container">
     <div className="form-container">
       <div className="form-header">
         <h1>Welcome to Quickbnb</h1>
         Enter your Airbnb preferences below and click Search to see your future
         stay!
       </div>
-      <form>
+      <form className="form-box">
         <div className="form-field">
           <label>Location</label>
           <input
@@ -41,8 +42,9 @@ const Form = () => {
           <label>Number of Guests</label>
           <input type="number" className="form-input" name="Number of Guests" />
         </div>
-        <button type="submit">Search</button>
+        <button type="submit" className="search-btn">Search</button>
       </form>
+    </div>
     </div>
   );
 };
