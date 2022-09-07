@@ -22,7 +22,6 @@ const Form = () => {
         "X-RapidAPI-Host": "airbnb19.p.rapidapi.com",
       },
     };
-
     axios
       .request(options)
       .then(function (response) {
@@ -41,7 +40,7 @@ const Form = () => {
           Enter your Airbnb preferences below and click Search to see your
           future stay!
         </div>
-        <form className="form-box">
+        <form onSubmit={submitHandler} className="form-box">
           <div className="form-field">
             <label>Location</label>
             <input
@@ -83,7 +82,7 @@ const Form = () => {
               name="Number of Guests"
             />
           </div>
-          <Button type="submit" onClick={submitHandler} className="search-btn">
+          <Button type="submit" className="search-btn">
             Search
           </Button>
         </form>
