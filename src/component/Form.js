@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import "./Form.css";
 import Button from "../ui/Button";
-import axios from 'axios'
+import axios from "axios";
+import env from "react-dotenv";
 
 const Form = () => {
   const [location, setLocation] = useState();
@@ -9,16 +10,21 @@ const Form = () => {
   const [checkout, setCheckout] = useState();
   const [guests, setGuests] = useState();
 
+  console.log(env.API_KEY)
+  console.log(env.API_URL)
+
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log('we are hadnling your subnmit!')
+    console.log("we are hadnling your subnmit!");
+
+
 
     const options = {
       method: "GET",
-      url: "https://airbnb19.p.rapidapi.com/api/v1/searchDestination",
+      url: env.API_URL,
       params: { query: location },
       headers: {
-        "X-RapidAPI-Key": "4c4a9de1bamsha6b3b850c8d309ep189f2bjsn27461fdd98de",
+        "X-RapidAPI-Key": env.API_KEY,
         "X-RapidAPI-Host": "airbnb19.p.rapidapi.com",
       },
     };
