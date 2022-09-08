@@ -5,29 +5,28 @@ import axios from "axios";
 import env from "react-dotenv";
 
 const Form = () => {
-  const [location, setLocation] = useState();
-  const [checkin, setCheckin] = useState();
-  const [checkout, setCheckout] = useState();
-  const [guests, setGuests] = useState();
+  const [location, setLocation] = useState([]);
+  const [checkin, setCheckin] = useState([]);
+  const [checkout, setCheckout] = useState([]);
+  const [guests, setGuests] = useState([]);
+  const [placeId, setPlaceId] = useState("");
 
-  console.log(env.API_KEY)
-  console.log(env.API_URL)
-
-  const submitHandler = (e) => {
-    e.preventDefault();
-    console.log("we are hadnling your subnmit!");
-
-
-
+  const searchPropertyByPlace = (apiPlaceId) => {
     const options = {
       method: "GET",
-      url: env.API_URL,
-      params: { query: location },
+      url: `${env.API_URL}searchPropertyByPlace`,
+      params: {
+        id: apiPlaceId,
+        checkin: checkin,
+        checkout: checkout,
+        adults: guests,
+      },
       headers: {
         "X-RapidAPI-Key": env.API_KEY,
         "X-RapidAPI-Host": "airbnb19.p.rapidapi.com",
       },
     };
+
     axios
       .request(options)
       .then(function (response) {
@@ -36,6 +35,32 @@ const Form = () => {
       .catch(function (error) {
         console.error(error);
       });
+  };
+
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const options = {
+      method: "GET",
+      url: `${env.API_URL}searchDestination`,
+      params: { query: location },
+      headers: {
+        "X-RapidAPI-Key": env.API_KEY,
+        "X-RapidAPI-Host": "airbnb19.p.rapidapi.com",
+      },
+    };
+    axios
+      .request(options)
+      .then(response => {
+        setPlaceId(response.data.data[0].id);
+        
+        // searchPropertyByPlace(placeId);
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+
+      console.log(placeId);
   };
 
   return (
