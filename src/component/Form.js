@@ -11,12 +11,13 @@ const Form = () => {
   const [guests, setGuests] = useState([]);
   const [placeId, setPlaceId] = useState("");
 
-  const searchPropertyByPlace = (apiPlaceId) => {
+  const searchPropertyByPlace = () => {
+    console.log(placeId);
     const options = {
       method: "GET",
       url: `${env.API_URL}searchPropertyByPlace`,
       params: {
-        id: apiPlaceId,
+        id: placeId,
         checkin: checkin,
         checkout: checkout,
         adults: guests,
@@ -37,9 +38,7 @@ const Form = () => {
       });
   };
 
-  const submitHandler = (e) => {
-    e.preventDefault();
-
+  const searchProperty = (location) => {
     const options = {
       method: "GET",
       url: `${env.API_URL}searchDestination`,
@@ -51,16 +50,23 @@ const Form = () => {
     };
     axios
       .request(options)
-      .then(response => {
-        setPlaceId(response.data.data[0].id);
-        
-        // searchPropertyByPlace(placeId);
+      .then((response) => {
+        const placeId = response.data.data[0].id;
+        setPlaceId(placeId);
+        return placeId;
       })
       .catch(function (error) {
         console.error(error);
       });
+  };
 
-      console.log(placeId);
+  const submitHandler = (e) => {
+    e.preventDefault();
+
+    const placeId = searchProperty(location);
+    setTimeout(() => {
+      searchPropertyByPlace(placeId);
+    }, 1001);
   };
 
   return (
