@@ -3,6 +3,7 @@ import "./Form.css";
 import Button from "../ui/Button";
 import axios from "axios";
 import env from "react-dotenv";
+import { useNavigate } from "react-router-dom";
 
 const Form = () => {
   const [location, setLocation] = useState([]);
@@ -10,9 +11,11 @@ const Form = () => {
   const [checkout, setCheckout] = useState([]);
   const [guests, setGuests] = useState([]);
   const [placeId, setPlaceId] = useState("");
+  const navigate = useNavigate();
 
   const searchPropertyByPlace = () => {
-    console.log(placeId);
+    console.log("API CALL 2" + placeId);
+
     const options = {
       method: "GET",
       url: `${env.API_URL}searchPropertyByPlace`,
@@ -39,6 +42,7 @@ const Form = () => {
   };
 
   const searchProperty = (location) => {
+    let localPlaceId = ''
     const options = {
       method: "GET",
       url: `${env.API_URL}searchDestination`,
@@ -51,22 +55,28 @@ const Form = () => {
     axios
       .request(options)
       .then((response) => {
-        const placeId = response.data.data[0].id;
-        setPlaceId(placeId);
-        return placeId;
+        localPlaceId = response.data.data[0].id;
+        setPlaceId(localPlaceId);
+        console.log("Updated placeID State")
       })
       .catch(function (error) {
         console.error(error);
       });
+
+
+      return localPlaceId;
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const placeId = searchProperty(location);
+    const localPlaceId = searchProperty(location);
+    console.log(localPlaceId);
     setTimeout(() => {
       searchPropertyByPlace(placeId);
-    }, 1001);
+    }, 1500);
+
+    // navigate("/results");
   };
 
   return (
