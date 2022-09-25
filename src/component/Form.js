@@ -1,11 +1,10 @@
 import React, { useState } from "react";
 import "./Form.css";
 import Button from "../ui/Button";
-import axios from "axios";
-import env from "react-dotenv";
 import { useNavigate } from "react-router-dom";
+import { SearchProperty, SearchPropertyByPlace } from "../API";
 
-const Form = () => {
+const Form = (props) => {
   const [location, setLocation] = useState([]);
   const [checkin, setCheckin] = useState([]);
   const [checkout, setCheckout] = useState([]);
@@ -13,70 +12,30 @@ const Form = () => {
   const [placeId, setPlaceId] = useState("");
   const navigate = useNavigate();
 
-  const searchPropertyByPlace = () => {
-    console.log("API CALL 2" + placeId);
-
-    const options = {
-      method: "GET",
-      url: `${env.API_URL}searchPropertyByPlace`,
-      params: {
-        id: placeId,
-        checkin: checkin,
-        checkout: checkout,
-        adults: guests,
-      },
-      headers: {
-        "X-RapidAPI-Key": env.API_KEY,
-        "X-RapidAPI-Host": "airbnb19.p.rapidapi.com",
-      },
-    };
-
-    axios
-      .request(options)
-      .then(function (response) {
-        console.log(response.data);
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
+  const getPlaceId = async () => {
+    const apiResponse = await SearchProperty(location);
+    setPlaceId(apiResponse);
   };
 
-  const searchProperty = (location) => {
-    let localPlaceId = ''
-    const options = {
-      method: "GET",
-      url: `${env.API_URL}searchDestination`,
-      params: { query: location },
-      headers: {
-        "X-RapidAPI-Key": env.API_KEY,
-        "X-RapidAPI-Host": "airbnb19.p.rapidapi.com",
-      },
-    };
-    axios
-      .request(options)
-      .then((response) => {
-        localPlaceId = response.data.data[0].id;
-        setPlaceId(localPlaceId);
-        console.log("Updated placeID State")
-      })
-      .catch(function (error) {
-        console.error(error);
-      });
-
-
-      return localPlaceId;
+  const getProperties = async () => {
+    const propertyList = await SearchPropertyByPlace(
+      placeId,
+      checkin,
+      checkout,
+      guests
+    );
+    props.updateResultList(propertyList);
   };
 
   const submitHandler = (e) => {
     e.preventDefault();
 
-    const localPlaceId = searchProperty(location);
-    console.log(localPlaceId);
+    getPlaceId();
     setTimeout(() => {
-      searchPropertyByPlace(placeId);
+      getProperties();
+      // navigate("/results");
     }, 1500);
 
-    // navigate("/results");
   };
 
   return (
