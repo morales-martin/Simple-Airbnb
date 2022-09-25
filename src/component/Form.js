@@ -9,12 +9,11 @@ const Form = (props) => {
   const [checkin, setCheckin] = useState([]);
   const [checkout, setCheckout] = useState([]);
   const [guests, setGuests] = useState([]);
-  const [placeId, setPlaceId] = useState("");
   const navigate = useNavigate();
+  let placeId = ""
 
   const getPlaceId = async () => {
-    const apiResponse = await SearchProperty(location);
-    setPlaceId(apiResponse);
+    placeId = await SearchProperty(location);
   };
 
   const getProperties = async () => {
@@ -31,6 +30,7 @@ const Form = (props) => {
     e.preventDefault();
 
     getPlaceId();
+
     setTimeout(() => {
       getProperties();
       // navigate("/results");

@@ -17,6 +17,8 @@ export async function SearchPropertyByPlace(id, checkin, checkout, guests) {
     },
   };
 
+  console.log(options)
+
   return axios
     .request(options)
     .then(function (response) {
