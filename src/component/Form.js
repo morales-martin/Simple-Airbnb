@@ -33,7 +33,7 @@ const Form = (props) => {
 
     setTimeout(() => {
       getProperties();
-      // navigate("/results");
+      navigate("/results");
     }, 1500);
 
   };
