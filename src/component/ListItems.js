@@ -1,13 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 const ListItems = (props) => {
-  let results = props.airbnbList.data;
+  let results = props.airbnbList;
   
+  useEffect(() =>{console.log(results)},[results])
+
 
   return(
     <div>
       {results.map((airbnb) => {
-        <h1>{airbnb.listingName}</h1>
+        return <h1>{airbnb.listingName}</h1>
       })}
     </div>
   )

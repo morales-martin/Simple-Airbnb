@@ -17,8 +17,6 @@ export async function SearchPropertyByPlace(id, checkin, checkout, guests) {
     },
   };
 
-  console.log(options)
-
   return axios
     .request(options)
     .then(function (response) {
@@ -30,7 +28,6 @@ export async function SearchPropertyByPlace(id, checkin, checkout, guests) {
 }
 
 export async function SearchProperty(location) {
-  let resp = "";
   const options = {
     method: "GET",
     url: `${env.API_URL}searchDestination`,

@@ -23,6 +23,8 @@ const Form = (props) => {
       checkout,
       guests
     );
+    
+    // console.log("updating result list")
     props.updateResultList(propertyList);
   };
 
@@ -33,8 +35,11 @@ const Form = (props) => {
 
     setTimeout(() => {
       getProperties();
+      console.log("Got airbnb results from API")
+      console.log("Navigating...")
       navigate("/results");
     }, 1500);
+
 
   };
 
