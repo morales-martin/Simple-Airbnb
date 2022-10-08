@@ -1,14 +1,16 @@
 import React from "react";
+import Card from "../ui/Card";
+import { useState } from "react";
 
 const ListItems = (props) => {
-  let results = props.airbnbList;
+let results = props.airbnbList;
   
   console.log(results)
 
   return(
     <div>
       {results.map((airbnb) => {
-        return <h1 key={airbnb.id}>{airbnb.listingName}</h1>
+        return <Card key={airbnb.id} results={results}></Card>
       })}
     </div>
   )
