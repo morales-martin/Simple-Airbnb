@@ -44,11 +44,7 @@
 }
 
 .search-btn {
-    background-color: #FF385C;
-    border: none;
-    color: #FFFFFF;
     width: 100%;
-    border-radius: 8px;
-    padding: 3% 0;
-    box-shadow: 5px 5px 5px #CCCCD7;
+    background-color: #FF385C;
+    color: #FFFFFF;
 }
