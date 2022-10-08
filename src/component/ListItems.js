@@ -8,7 +8,7 @@ const ListItems = (props) => {
   return(
     <div>
       {results.map((airbnb) => {
-        return <h1>{airbnb.listingName}</h1>
+        return <h1 key={airbnb.id}>{airbnb.listingName}</h1>
       })}
     </div>
   )
