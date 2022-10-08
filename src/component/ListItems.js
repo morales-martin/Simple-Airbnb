@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const ListItems = (props) => {
   let results = props.airbnbList;
   
-  useEffect(() =>{console.log(results)},[results])
-
+  console.log(results)
 
   return(
     <div>
