@@ -1,0 +1,25 @@
+.contain {
+  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: lightcoral;
+  flex-wrap: wrap;
+  height: auto;
+  
+}
+.card {
+  margin: 20px;
+  width: 25%;
+}
+
+img {
+  width: 50%;
+  height: 50%;
+}
+
+
+.text {
+  color: green;
+} 
