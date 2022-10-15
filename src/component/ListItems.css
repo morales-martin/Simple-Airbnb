@@ -1,4 +1,17 @@
-.back__btn {
-    background-color: #FF385C;
-    color: #FFFFFF;
+.results__btn {
+  background-color: #ffffff;
+  color: #ff385c;
+  height:3rem;
+  width:12rem;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbar-right {
+  display: flex;
+  flex-direction: row;
 }

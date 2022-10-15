@@ -41,7 +41,6 @@ const Form = (props) => {
   };
 
   return (
-    <div className="page-container">
       <div className="form-container">
         <div className="form-header">
           <h1>Welcome to Quickbnb</h1>
@@ -95,7 +94,6 @@ const Form = (props) => {
           </Button>
         </form>
       </div>
-    </div>
   );
 };
 

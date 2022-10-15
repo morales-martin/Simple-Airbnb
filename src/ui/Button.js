@@ -5,7 +5,7 @@ import './Button.css'
 
 
   return (
-    <button type={props.type} className={props.className + ' btn'}>{props.children}</button>
+    <button type={props.type} className={props.className + ' btn'} onClick={props.onClick}>{props.children}</button>
   )
 }
 

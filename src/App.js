@@ -10,8 +10,7 @@ function App() {
   const updateResultList = (data) => {
     setAirbnbList(data.data);
   };
-
-
+  
   return (
     <div className="App">
       <BrowserRouter>
