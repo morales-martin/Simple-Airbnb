@@ -4,7 +4,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: lightcoral;
+  background: rgba(254, 201, 227, 0.3) no-repeat;
+  background-size: cover;
   flex-wrap: wrap;
   height: auto;
   
