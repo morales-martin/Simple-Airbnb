@@ -4,12 +4,12 @@ import { useState } from "react";
 
 const ListItems = (props) => {
 let results = props.airbnbList;
-  
+let days = props.day
   console.log(results)
 
   return(
     <>
-    <ResultGrid results={results}></ResultGrid>
+    <ResultGrid results={results} days={days} ></ResultGrid>
     </>
   )
 };
