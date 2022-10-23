@@ -9,23 +9,29 @@ const ListItems = (props) => {
   const navigate = useNavigate();
 
   let apiData = props.airbnbList;
-  console.log(apiData)
 
   useEffect(() =>{ 
     setResults(apiData);
   },[apiData])
 
-  const sortHandler = (e) => {
-    setSort(e.target.value);
-    let currResults = results
-    if(sort === 'price_highest'){
-      currResults.sort((a,b) => parseFloat(a.price.slice(1)) > parseFloat(b.price.slice(1)))
+  useEffect(() =>{ 
+    let currResults = [...results]
+
+    if(sort === 'price_descending'){
+      console.log("Descending price...")
+      currResults.sort((a,b) => parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1)))
+    }else if(sort === 'price_ascending'){
+      console.log("Ascending price...")
+      currResults.sort((a,b) => parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1)))
     }else{
-      currResults.sort((a,b) => parseFloat(a.price.slice(1)) < parseFloat(b.price.slice(1)))
+      currResults = [...apiData]
     }
 
     setResults(currResults)
+  },[sort])
 
+  const sortHandler = (e) => {
+    setSort(e.target.value);
   };
 
   const backSubmitHandler = (e) => {
@@ -41,11 +47,12 @@ const ListItems = (props) => {
         </Button>
         <div className="navbar-right">
           <div>
-            <label>
+            <label className="">
               Sort
               <select value={sort} onChange={sortHandler}>
-                <option value="price_highest">Highest</option>
-                <option value="price_lowest">Lowest</option>
+                <option value="unsorted"></option>
+                <option value="price_ascending">Ascending</option>
+                <option value="price_descending">Descending</option>
               </select>
             </label>
           </div>
@@ -55,7 +62,7 @@ const ListItems = (props) => {
         </div>
       </div>
       {results.map((airbnb) => {
-        return <h1 key={airbnb}>{parseFloat(airbnb.price.slice(1))}</h1>;
+        return <h1 key={airbnb.id}>{parseFloat(airbnb.price.slice(1))}</h1>;
       })}
     </div>
   );
