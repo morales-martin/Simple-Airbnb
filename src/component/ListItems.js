@@ -10,25 +10,27 @@ const ListItems = (props) => {
 
   let apiData = props.airbnbList;
 
-  useEffect(() =>{ 
+  useEffect(() => {
     setResults(apiData);
-  },[apiData])
+  }, [apiData]);
 
-  useEffect(() =>{ 
-    let currResults = [...results]
+  useEffect(() => {
+    let currResults = [...results];
 
-    if(sort === 'price_descending'){
-      console.log("Descending price...")
-      currResults.sort((a,b) => parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1)))
-    }else if(sort === 'price_ascending'){
-      console.log("Ascending price...")
-      currResults.sort((a,b) => parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1)))
-    }else{
-      currResults = [...apiData]
+    if (sort === "price_ascending") {
+      currResults.sort(
+        (a, b) => parseFloat(a.price.slice(1)) - parseFloat(b.price.slice(1))
+      );
+    } else if (sort === "price_descending") {
+      currResults.sort(
+        (a, b) => parseFloat(b.price.slice(1)) - parseFloat(a.price.slice(1))
+      );
+    } else {
+      currResults = [...apiData];
     }
 
-    setResults(currResults)
-  },[sort])
+    setResults(currResults);
+  }, [sort]);
 
   const sortHandler = (e) => {
     setSort(e.target.value);
@@ -46,15 +48,16 @@ const ListItems = (props) => {
           Back to Search
         </Button>
         <div className="navbar-right">
-          <div>
-            <label className="">
-              Sort
-              <select value={sort} onChange={sortHandler}>
-                <option value="unsorted"></option>
-                <option value="price_ascending">Ascending</option>
-                <option value="price_descending">Descending</option>
-              </select>
-            </label>
+          <div className="navbar_sort__container">
+            <Button className="link results__btn">Sort</Button>
+            <div className="navbar__sort_menu">
+              <Button className="results__btn" value="price_ascending" onClick={sortHandler}>
+                Price Ascending
+              </Button>
+              <Button className="results__btn" value="price_descending" onClick={sortHandler}>
+                Price Descending
+              </Button>
+            </div>
           </div>
           <Button className="results__btn" onClick={backSubmitHandler}>
             Share
