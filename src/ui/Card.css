@@ -14,6 +14,26 @@
   width: 25%;
 }
 
+.card-img-top {
+  width: 100%;
+}
+
+.listingName {
+  font-weight: 700;
+}
+
+.card-text {
+  padding: 0.1em 1rem;
+}
+
+.priceperNight{
+  font-weight: 600;
+}
+
+.totalPrice {
+  text-decoration: underline;
+}
+
 img {
   width: 50%;
   height: 50%;
