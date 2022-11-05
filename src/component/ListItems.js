@@ -3,9 +3,11 @@ import Button from "../ui/Button";
 import { useNavigate } from "react-router-dom";
 import "./ListItems.css";
 import Card from "../ui/Card";
+import ShareModal from './ShareModal'
 
 const ListItems = (props) => {
   const [sort, setSort] = useState();
+  // const [showModal, setShowModal] = useState(false);
   const [results, setResults] = useState([]);
   const navigate = useNavigate();
 
@@ -37,6 +39,10 @@ const ListItems = (props) => {
     setSort(e.target.value);
   };
 
+  const shareHandler = (e) => {
+
+  }
+
   const backSubmitHandler = (e) => {
     e.preventDefault();
     navigate("/");
@@ -52,22 +58,31 @@ const ListItems = (props) => {
           <div className="navbar_sort__container">
             <Button className="link results__btn">Sort</Button>
             <div className="navbar__sort_menu">
-              <Button className="results__btn" value="price_ascending" onClick={sortHandler}>
+              <Button
+                className="results__btn"
+                value="price_ascending"
+                onClick={sortHandler}
+              >
                 Price Ascending
               </Button>
-              <Button className="results__btn" value="price_descending" onClick={sortHandler}>
+              <Button
+                className="results__btn"
+                value="price_descending"
+                onClick={sortHandler}
+              >
                 Price Descending
               </Button>
             </div>
           </div>
-          <Button className="results__btn" onClick={backSubmitHandler}>
+          <Button className="results__btn" onClick={shareHandler}>
             Share
           </Button>
         </div>
       </div>
       {results.map((airbnb) => {
-        return <h1 key={airbnb.id}>{airbnb.listingName}</h1>
+        return <h1 key={airbnb.id}>{airbnb.listingName}</h1>;
       })}
+      <ShareModal />
     </div>
   );
 };
