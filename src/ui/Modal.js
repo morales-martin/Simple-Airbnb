@@ -2,12 +2,19 @@ import React from "react";
 import ReactModal from "react-modal";
 
 function Modal(props) {
+  
+  const handleCloseModal = () => {
+    props.setShow(false);
+  }
 
   return (
     <ReactModal
       isOpen={
-        true
+        props.show
         /* Boolean describing if the modal should be shown or not. */
+      }
+      onRequestClose={
+        handleCloseModal
       }
       contentLabel={"Share Modal"}
       portalClassName={
@@ -62,7 +69,7 @@ function Modal(props) {
           margin: "auto",
           height: "60vh",
           width: "70vw",
-          background: "#fff",
+          background: "#F5F5F5",
           overflow: "auto",
           WebkitOverflowScrolling: "touch",
           borderRadius: "24px",

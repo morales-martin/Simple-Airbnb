@@ -1,30 +1,18 @@
 import React from "react";
 import Modal from "../ui/Modal";
+import ShareForm from "./ShareForm";
+import './ShareModal.css'
 
-function ShareModal() {
-    
-
-
-    // this.state = {
-    //     showModal: false
-    //   };
-      
-    //   this.handleOpenModal = this.handleOpenModal.bind(this);
-    //   this.handleCloseModal = this.handleCloseModal.bind(this);
-    // }
-    
-    // handleOpenModal () {
-    //   this.setState({ showModal: true });
-    // }
-    
-    // handleCloseModal () {
-    //   this.setState({ showModal: false });
-    // }
-
+function ShareModal(props) {
   return (
-      <Modal>
-        
-      </Modal>
+    <Modal show={props.showModal} setShow={props.setShowModal}>
+      <div className="share-modal-container">
+        <div className="share-item-list">
+          <div>List Item</div>
+        </div>
+        <ShareForm />
+      </div>
+    </Modal>
   );
 }
 

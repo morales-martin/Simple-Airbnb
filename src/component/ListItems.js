@@ -7,7 +7,7 @@ import ShareModal from './ShareModal'
 
 const ListItems = (props) => {
   const [sort, setSort] = useState();
-  // const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState(false);
   const [results, setResults] = useState([]);
   const navigate = useNavigate();
 
@@ -40,7 +40,7 @@ const ListItems = (props) => {
   };
 
   const shareHandler = (e) => {
-
+    setShowModal(true);
   }
 
   const backSubmitHandler = (e) => {
@@ -82,7 +82,7 @@ const ListItems = (props) => {
       {results.map((airbnb) => {
         return <h1 key={airbnb.id}>{airbnb.listingName}</h1>;
       })}
-      <ShareModal />
+      <ShareModal showModal={showModal} setShowModal={setShowModal} />
     </div>
   );
 };

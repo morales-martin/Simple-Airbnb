@@ -1,0 +1,14 @@
+.share-modal-container {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+}
+
+.share-item-list {
+  display: flex;
+  flex: 1;
+}
+
+.share-item-list div {
+  margin: auto;
+}
