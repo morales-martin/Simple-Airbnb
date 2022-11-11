@@ -1,10 +1,7 @@
 .share-form-container {
     display: flex;
+    flex-direction: column;
     flex: 1;
-}
-
-.share-form-container form {
-    margin: auto;
 }
 
 .share-form-field {
@@ -26,15 +23,18 @@
     outline: none;
 }
 
-.share-btn {
-    width: 100%;
-    padding: 2% 3%;
-    background-color: #FF385C;
-    color: #FFFFFF;
-}
-
 .message {
     resize:none;
-    width: 30rem;
     height: 10rem;
+}
+
+.share-button{
+    padding: 1rem;
+    width: 40%;
+}
+
+.share-form {
+    margin: auto;
+    width: 80%;
+    padding: 2% 3%;
 }

@@ -10,7 +10,7 @@ function ShareModal(props) {
         <div className="share-item-list">
           <div>List Item</div>
         </div>
-        <ShareForm />
+        <ShareForm selectedItems={props.selectedItems} setSelectedItems={props.setSelectedItems} />
       </div>
     </Modal>
   );

@@ -75,7 +75,7 @@ function Modal(props) {
           borderRadius: "24px",
           outline: "none",
           padding: "20px",
-        },
+        }
       }}
     >
       {props.children}

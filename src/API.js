@@ -4,7 +4,7 @@ import env from "react-dotenv";
 export async function SearchPropertyByPlace(id, checkin, checkout, guests) {
   const options = {
     method: "GET",
-    url: `${env.API_URL}searchPropertyByPlace`,
+    url: `${env.REACT_APP_API_URL}searchPropertyByPlace`,
     params: {
       id: id,
       checkin: checkin,
@@ -12,7 +12,7 @@ export async function SearchPropertyByPlace(id, checkin, checkout, guests) {
       adults: guests,
     },
     headers: {
-      "X-RapidAPI-Key": env.API_KEY,
+      "X-RapidAPI-Key": env.REACT_APP_API_KEY,
       "X-RapidAPI-Host": "airbnb19.p.rapidapi.com",
     },
   };
@@ -30,10 +30,10 @@ export async function SearchPropertyByPlace(id, checkin, checkout, guests) {
 export async function SearchProperty(location) {
   const options = {
     method: "GET",
-    url: `${env.API_URL}searchDestination`,
+    url: `${env.REACT_APP_API_URL}searchDestination`,
     params: { query: location },
     headers: {
-      "X-RapidAPI-Key": env.API_KEY,
+      "X-RapidAPI-Key": env.REACT_APP_API_KEY,
       "X-RapidAPI-Host": "airbnb19.p.rapidapi.com",
     },
   };

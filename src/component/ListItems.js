@@ -3,12 +3,13 @@ import Button from "../ui/Button";
 import { useNavigate } from "react-router-dom";
 import "./ListItems.css";
 import Card from "../ui/Card";
-import ShareModal from './ShareModal'
+import ShareModal from "./ShareModal";
 
 const ListItems = (props) => {
   const [sort, setSort] = useState();
   const [showModal, setShowModal] = useState(false);
   const [results, setResults] = useState([]);
+  const [selectedItems, setSelectedItems] = useState([]);
   const navigate = useNavigate();
 
   let apiData = props.airbnbList;
@@ -40,8 +41,9 @@ const ListItems = (props) => {
   };
 
   const shareHandler = (e) => {
+    setSelectedItems(results.slice(0, 11));
     setShowModal(true);
-  }
+  };
 
   const backSubmitHandler = (e) => {
     e.preventDefault();
@@ -82,7 +84,12 @@ const ListItems = (props) => {
       {results.map((airbnb) => {
         return <h1 key={airbnb.id}>{airbnb.listingName}</h1>;
       })}
-      <ShareModal showModal={showModal} setShowModal={setShowModal} />
+      <ShareModal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        selectedItems={selectedItems}
+        setSelectedItems={setSelectedItems}
+      />
     </div>
   );
 };
