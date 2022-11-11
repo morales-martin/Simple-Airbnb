@@ -26,7 +26,7 @@ const ListItems = (props) => {
         setShowModal={setShowModal}
         originalList={originalList}
       />
-      <ResultGrid results={originalList} days={days} ></ResultGrid>
+      <ResultGrid results={results} days={days} ></ResultGrid>
       <ShareModal
         showModal={showModal}
         setShowModal={setShowModal}
