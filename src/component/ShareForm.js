@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ShareForm.css";
 import Button from "../ui/Button";
-import MultipleEmailInput from "./CustomizeStyle";
+import MultipleEmailInput from "./MultipleEmailInput";
 import emailjs from "emailjs-com";
 import env from "react-dotenv";
 
