@@ -16,8 +16,13 @@ const ListItems = (props) => {
   }, [originalList]);
 
   return (
-    <div>
-      <Toolbar results={results} setResults={setResults} setShowModal={setShowModal} originalList={originalList} />
+    <div className="list-items-container">
+      <Toolbar
+        results={results}
+        setResults={setResults}
+        setShowModal={setShowModal}
+        originalList={originalList}
+      />
       {results.map((airbnb) => {
         return <h1 key={airbnb.id}>{airbnb.listingName}</h1>;
       })}

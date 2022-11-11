@@ -69,6 +69,7 @@ function Modal(props) {
           margin: "auto",
           height: "60vh",
           width: "70vw",
+          maxWidth: "70rem",
           background: "#F5F5F5",
           overflow: "auto",
           WebkitOverflowScrolling: "touch",

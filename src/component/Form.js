@@ -10,7 +10,7 @@ const Form = (props) => {
   const [checkout, setCheckout] = useState([]);
   const [guests, setGuests] = useState([]);
   const navigate = useNavigate();
-  let placeId = ""
+  let placeId = "";
 
   const getPlaceId = async () => {
     placeId = await SearchProperty(location);
@@ -23,7 +23,7 @@ const Form = (props) => {
       checkout,
       guests
     );
-    
+
     props.updateResultList(propertyList);
   };
 
@@ -36,12 +36,11 @@ const Form = (props) => {
       getProperties();
       navigate("/results");
     }, 1500);
-
-
   };
 
   return (
-      <div className="form-container">
+    <div className="form-container">
+      <div className="form">
         <div className="form-header">
           <h1>Welcome to Quickbnb</h1>
           Enter your Airbnb preferences below and click Search to see your
@@ -56,27 +55,36 @@ const Form = (props) => {
               type="text"
               className="form-input"
               name="Location"
-              placeholder="&#x1F9ED;"
+              required={true}
+              placeholder="Smallville, USA"
             />
           </div>
           <div className="form-field">
             <label>Check In</label>
             <input
-              type="Date"
+              type="text"
               value={checkin}
               onChange={(e) => setCheckin(e.target.value)}
               className="form-input"
               name="Check In"
+              required={true}
+              placeholder="MM/DD/YYYY"
+              onFocus={(e) => (e.target.type = "date")}
+              onBlur={(e) => (e.target.type = "text")}
             />
           </div>
           <div className="form-field">
             <label>Check Out</label>
             <input
               value={checkout}
-              type="Date"
+              type="text"
               onChange={(e) => setCheckout(e.target.value)}
               className="form-input"
               name="Check Out"
+              required={true}
+              placeholder="MM/DD/YYYY"
+              onFocus={(e) => (e.target.type = "date")}
+              onBlur={(e) => (e.target.type = "text")}
             />
           </div>
           <div className="form-field">
@@ -87,6 +95,8 @@ const Form = (props) => {
               type="number"
               className="form-input"
               name="Number of Guests"
+              required={true}
+              min="1"
             />
           </div>
           <Button type="submit" className="search-btn">
@@ -94,6 +104,7 @@ const Form = (props) => {
           </Button>
         </form>
       </div>
+    </div>
   );
 };
 
