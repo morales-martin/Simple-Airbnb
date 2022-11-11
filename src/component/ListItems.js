@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ListItems.css";
-import Card from "../ui/Card";
+import ResultGrid from "../ui/ResultGrid";
 import ShareModal from "./ShareModal";
 import Toolbar from "./Toolbar";
 
@@ -15,6 +15,9 @@ const ListItems = (props) => {
     setResults(originalList);
   }, [originalList]);
 
+  let days = props.day
+  console.log(results)
+
   return (
     <div className="list-items-container">
       <Toolbar
@@ -23,9 +26,7 @@ const ListItems = (props) => {
         setShowModal={setShowModal}
         originalList={originalList}
       />
-      {results.map((airbnb) => {
-        return <h1 key={airbnb.id}>{airbnb.listingName}</h1>;
-      })}
+      <ResultGrid results={originalList} days={days} ></ResultGrid>
       <ShareModal
         showModal={showModal}
         setShowModal={setShowModal}

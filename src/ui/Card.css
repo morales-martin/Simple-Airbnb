@@ -1,0 +1,45 @@
+.contain {
+  
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(254, 201, 227, 0.3) no-repeat;
+  background-size: cover;
+  flex-wrap: wrap;
+  height: auto;
+}
+.card {
+  margin: 20px;
+  width: 25%;
+}
+
+.card-img-top {
+  width: 100%;
+}
+
+.listingName {
+  font-weight: 700;
+}
+
+.card-text {
+  padding: 0.1em 1rem;
+}
+
+.priceperNight{
+  font-weight: 600;
+}
+
+.totalPrice {
+  text-decoration: underline;
+}
+
+img {
+  width: 50%;
+  height: 50%;
+}
+
+
+.text {
+  color: green;
+} 
