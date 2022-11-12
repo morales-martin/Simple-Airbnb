@@ -11,9 +11,19 @@ export default function ResultGrid(props) {
         return (
           <Card
             key={result.id}
-            result={result}
+              images={result.images}
+               id={result.id}
+                title={result.title}
+                 listingName={result.listingName}
+                  price={result.price}
+                  days={result.days}
+                   beds={result.beds}
+                    bathrooms={result.bathrooms}
+            
             index={index}
-            days={props.days}
+            // days={props.days}
+            selectedItems={props.selectedItems}
+            setSelectedItems={props.setSelectedItems}
           />
         );
       })}

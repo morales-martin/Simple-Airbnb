@@ -7,7 +7,7 @@ import Toolbar from "./Toolbar";
 const ListItems = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [results, setResults] = useState([]);
-  const [selectedItems, setSelectedItems] = useState([]);
+  const [selectedItems, setSelectedItems] = useState(new Map());
 
   let originalList = props.airbnbList;
 
@@ -26,7 +26,7 @@ const ListItems = (props) => {
         setShowModal={setShowModal}
         originalList={originalList}
       />
-      <ResultGrid results={results} days={days} ></ResultGrid>
+      <ResultGrid results={results} days={days} selectedItems={selectedItems} setSelectedItems={setSelectedItems} ></ResultGrid>
       <ShareModal
         showModal={showModal}
         setShowModal={setShowModal}
