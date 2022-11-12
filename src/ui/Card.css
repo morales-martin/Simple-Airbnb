@@ -5,8 +5,22 @@
   width: 16rem;
 
   margin: 2%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
+
+.card svg {
+  position: relative;
+  left: 90%;
+  top: 5%;
+  width: 3em;
+  height: 2em;
+  
+}
+
+svg path {
+  fill: #FF385C;
+}
+
 
 .image-container {
   height: 60%;
