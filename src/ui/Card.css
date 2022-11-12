@@ -1,29 +1,36 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+
 .contain {
-  
   width: 100%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+   justify-content: center;
   background: rgba(254, 201, 227, 0.3) no-repeat;
   background-size: cover;
-  flex-wrap: wrap;
-  height: auto;
+  flex-wrap: wrap; 
 }
 .card {
-  margin: 20px;
+  display: flex;
   width: 25%;
+  margin: 10px;
 }
 
 .card-img-top {
-  width: 100%;
+ width: 100%;
 }
 
 .listingName {
+  margin-top: 10px;
   font-weight: 700;
 }
 
 .card-text {
-  padding: 0.1em 1rem;
+  padding: 0.2em 0.5em;
 }
 
 .priceperNight{
