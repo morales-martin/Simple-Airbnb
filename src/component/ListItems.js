@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./ListItems.css";
-import ResultGrid from "../ui/ResultGrid";
+import ResultGrid from "./ResultGrid";
 import ShareModal from "./ShareModal";
 import Toolbar from "./Toolbar";
 

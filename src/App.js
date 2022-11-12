@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 function App() {
   const [airbnbList, setAirbnbList] = useState([]);
   const [day, setDays] = useState()
+  
   const updateResultList = (data) => {
     setAirbnbList(data.data);
   };

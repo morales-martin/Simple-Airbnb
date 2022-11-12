@@ -1,32 +1,37 @@
-.contain {
-  
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(254, 201, 227, 0.3) no-repeat;
-  background-size: cover;
-  flex-wrap: wrap;
-  height: auto;
-}
 .card {
-  margin: 20px;
-  width: 25%;
+  display: flex;
+  flex-direction: column;
+  height: 20rem;
+  width: 16rem;
+
+  margin: 2%;
+  overflow: hidden;
 }
 
-.card-img-top {
+.image-container {
+  height: 60%;
   width: 100%;
+
+  margin: auto;
+}
+
+.card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2rem;
+}
+
+.card-description {
+  padding: 0 2%;
+  margin: auto;
 }
 
 .listingName {
   font-weight: 700;
 }
 
-.card-text {
-  padding: 0.1em 1rem;
-}
-
-.priceperNight{
+.priceperNight {
   font-weight: 600;
 }
 
@@ -34,12 +39,12 @@
   text-decoration: underline;
 }
 
-img {
-  width: 50%;
-  height: 50%;
+.black {
+  color: black;
 }
 
-
-.text {
-  color: green;
-} 
+.grey {
+  color: #5f5f69;
+  /* 
+    color: #FF385C; */
+}

@@ -1,0 +1,12 @@
+.contain {
+  width: 70rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+  justify-content: center;
+  align-items: center;
+  
+  padding: 5%;
+}
