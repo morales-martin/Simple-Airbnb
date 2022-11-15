@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactModal from "react-modal";
 
 function Modal(props) {
@@ -6,6 +6,10 @@ function Modal(props) {
   const handleCloseModal = () => {
     props.setShow(false);
   }
+
+  useState(() => {
+    ReactModal.setAppElement('body')
+  },[])
 
   return (
     <ReactModal

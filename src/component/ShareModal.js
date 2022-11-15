@@ -1,26 +1,36 @@
 import React from "react";
 import Modal from "../ui/Modal";
 import ShareForm from "./ShareForm";
-import './ShareModal.css'
+import "./ShareModal.css";
 import Card from "../ui/Card";
 
 function ShareModal(props) {
-  const mapToArray = [...props.selectedItems]
   return (
     <Modal show={props.showModal} setShow={props.setShowModal}>
       <div className="share-modal-container">
         <div className="share-item-list">
           <div>
-            {
-              mapToArray.map((item) => {
-                return (
-                  <Card images={item[1].images} id={item[1].id} title={item[1].title} listingName={item[1].listingName} price={item[1].price} days={item[1].days} beds={item[1].beds} bathrooms={item[1].bathrooms} ></Card>
-                )
-              })
-            }
+            {props.selectedItems.map((item) => {
+              return (
+                <Card
+                  key={item.id}
+                  images={item.images}
+                  id={item.id}
+                  title={item.title}
+                  listingName={item.listingName}
+                  price={item.price}
+                  days={item.days}
+                  beds={item.beds}
+                  bathrooms={item.bathrooms}
+                  selectedItems={props.selectedItems}
+                  selectItemHandler={props.selectItemHandler}
+                  deselectItemHandler={props.deselectItemHandler}
+                ></Card>
+              );
+            })}
           </div>
         </div>
-        <ShareForm selectedItems={props.selectedItems} setSelectedItems={props.setSelectedItems} />
+        <ShareForm selectedItems={props.selectedItems} />
       </div>
     </Modal>
   );

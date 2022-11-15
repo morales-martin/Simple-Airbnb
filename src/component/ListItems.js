@@ -7,7 +7,7 @@ import Toolbar from "./Toolbar";
 const ListItems = (props) => {
   const [showModal, setShowModal] = useState(false);
   const [results, setResults] = useState([]);
-  const [selectedItems, setSelectedItems] = useState(new Map());
+  const [selectedItems, setSelectedItems] = useState([]);
 
   let originalList = props.airbnbList;
 
@@ -15,8 +15,19 @@ const ListItems = (props) => {
     setResults(originalList);
   }, [originalList]);
 
-  let days = props.day
-  console.log(results)
+  const selectItemHandler = (listing) => {
+    setSelectedItems((prevState) => {
+      return [...prevState,listing]
+    });
+  };
+
+  const deselectItemHandler = (id) => {
+    let newSelectedList = selectedItems.filter(item => item.id !== id)
+
+    setSelectedItems(newSelectedList)
+  };
+
+  let days = props.day;
 
   return (
     <div className="list-items-container">
@@ -26,12 +37,19 @@ const ListItems = (props) => {
         setShowModal={setShowModal}
         originalList={originalList}
       />
-      <ResultGrid results={results} days={days} selectedItems={selectedItems} setSelectedItems={setSelectedItems} ></ResultGrid>
+      <ResultGrid
+        results={results}
+        days={days}
+        selectItemHandler={selectItemHandler}
+        deselectItemHandler={deselectItemHandler}
+        selectedItems={selectedItems}
+      ></ResultGrid>
       <ShareModal
         showModal={showModal}
         setShowModal={setShowModal}
         selectedItems={selectedItems}
-        setSelectedItems={setSelectedItems}
+        selectItemHandler={selectItemHandler}
+        deselectItemHandler={deselectItemHandler}
       />
     </div>
   );
