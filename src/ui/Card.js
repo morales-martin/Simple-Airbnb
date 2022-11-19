@@ -47,7 +47,7 @@ function Card(props) {
         <img className="card-img" src={props.images[0]} alt={props.id}></img>
       </div>
       <div className="card-description">
-        <div className="black listingName"><a rel="noreferrer" target="_blank" href={`https://airbnb.com/rooms/${props.id}`}>{props.title}</a></div>
+        <div className="black listingName"><a rel="noreferrer" target="_blank" href={`https://airbnb.com/rooms/${props.id}?adults=${props.formData.guests}&check_in=${props.formData.checkin}&check_out=${props.formData.checkout}`}>{props.title}</a></div>
         <div className="grey">{props.listingName}</div>
         <div className="black">
           <span className="priceperNight">{props.price}</span>/night &#8226;{" "}

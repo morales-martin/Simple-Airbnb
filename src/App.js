@@ -6,14 +6,10 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   const [airbnbList, setAirbnbList] = useState([]);
-  const [day, setDays] = useState();
   const [formData, setFormData] = useState({});
 
   const updateResultList = (data) => {
     setAirbnbList(data.data);
-  };
-  const diffDays = (days) => {
-    setDays(days);
   };
 
   const updateFormData = (checkin, checkout, guests) => {

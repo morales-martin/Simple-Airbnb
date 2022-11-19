@@ -19,12 +19,12 @@ function ShareModal(props) {
                   title={item.title}
                   listingName={item.listingName}
                   price={item.price}
-                  days={props.formData.totalDays}
                   beds={item.beds}
                   bathrooms={item.bathrooms}
                   selectedItems={props.selectedItems}
                   selectItemHandler={props.selectItemHandler}
                   deselectItemHandler={props.deselectItemHandler}
+                  formData={props.formData}
                 ></Card>
               );
             })}
