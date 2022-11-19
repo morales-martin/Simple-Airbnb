@@ -41,14 +41,10 @@ const Form = (props) => {
       navigate("/results");
     }, 1500);
 
-    let dateOne = new Date(document.querySelector(".checkin").value);
-    let dateTwo = new Date(document.querySelector(".checkout").value);
+   
 
-    var diffDays =
-      Math.round(dateTwo.getTime() - dateOne.getTime()) / (1000 * 60 * 60 * 24);
-
-    props.diffDays(diffDays);
-    console.log(props.diffDays);
+    // props.diffDays(diffDays);
+    // console.log(props.diffDays);
   };
 
   return (

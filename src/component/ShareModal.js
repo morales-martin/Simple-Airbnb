@@ -19,7 +19,7 @@ function ShareModal(props) {
                   title={item.title}
                   listingName={item.listingName}
                   price={item.price}
-                  days={item.days}
+                  days={props.formData.totalDays}
                   beds={item.beds}
                   bathrooms={item.bathrooms}
                   selectedItems={props.selectedItems}
