@@ -26,6 +26,7 @@ export default function ResultGrid(props) {
             selectItemHandler={props.selectItemHandler}
             deselectItemHandler={props.deselectItemHandler}
             selectedItems={props.selectedItems}
+            formData= {props.formData}
 
           />
         );

@@ -24,6 +24,7 @@ function Card(props) {
         days: props.days,
         beds: props.beds,
         bathrooms: props.bathrooms,
+     
       });
     } else {
       props.deselectItemHandler(props.id);
@@ -51,7 +52,7 @@ function Card(props) {
         <div className="black">
           <span className="priceperNight">{props.price}</span>/night &#8226;{" "}
           <span className="totalPrice">
-            ${props.days * parseFloat(props.price.slice(1))} Total
+            ${props.formData.totalDays * parseFloat(props.price.slice(1))} Total
           </span>{" "}
         </div>
         <div className="black">
