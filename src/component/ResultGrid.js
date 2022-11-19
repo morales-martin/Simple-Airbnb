@@ -4,6 +4,7 @@ import Card from "../ui/Card";
 
 export default function ResultGrid(props) {
   console.log(props.results)
+  console.log(`I am logging from ResultGrid! ${JSON.stringify(props.formData)}`)
   return (
     <div className="contain">
       {props.results.map((result, index) => {

@@ -3,7 +3,7 @@ import "./Form.css";
 import Button from "../ui/Button";
 import { useNavigate } from "react-router-dom";
 import { SearchProperty, SearchPropertyByPlace } from "../API";
-import 'react-dates'
+import "react-dates";
 
 const Form = (props) => {
   const [location, setLocation] = useState([]);
@@ -31,20 +31,24 @@ const Form = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
 
-    getPlaceId();
+    console.log(checkin, checkout, guests)
+    props.updateFormData(checkin, checkout, guests);
 
+    getPlaceId();
     setTimeout(() => {
       getProperties();
+
       navigate("/results");
     }, 1500);
 
-let dateOne = new Date(document.querySelector('.checkin').value)
-let dateTwo = new Date(document.querySelector('.checkout').value)
+    let dateOne = new Date(document.querySelector(".checkin").value);
+    let dateTwo = new Date(document.querySelector(".checkout").value);
 
-var diffDays = Math.round((dateTwo.getTime() - dateOne.getTime()))/ (1000 * 60 * 60 * 24)
+    var diffDays =
+      Math.round(dateTwo.getTime() - dateOne.getTime()) / (1000 * 60 * 60 * 24);
 
-props.diffDays(diffDays)
-console.log(props.diffDays)
+    props.diffDays(diffDays);
+    console.log(props.diffDays);
   };
 
   return (
@@ -116,7 +120,5 @@ console.log(props.diffDays)
     </div>
   );
 };
-
-
 
 export default Form;

@@ -43,6 +43,7 @@ const ListItems = (props) => {
         selectItemHandler={selectItemHandler}
         deselectItemHandler={deselectItemHandler}
         selectedItems={selectedItems}
+        formData={props.formData}
       ></ResultGrid>
       <ShareModal
         showModal={showModal}
@@ -50,6 +51,7 @@ const ListItems = (props) => {
         selectedItems={selectedItems}
         selectItemHandler={selectItemHandler}
         deselectItemHandler={deselectItemHandler}
+        formData={props.formData}
       />
     </div>
   );
