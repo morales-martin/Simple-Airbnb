@@ -4,7 +4,7 @@ import Button from "../ui/Button";
 import { useNavigate } from "react-router-dom";
 import { SearchProperty, SearchPropertyByPlace } from "../API";
 import "react-dates";
-import moment from 'moment';
+import moment from "moment";
 
 const Form = (props) => {
   const [location, setLocation] = useState([]);
@@ -37,19 +37,21 @@ const Form = (props) => {
   const submitHandler = (e) => {
     e.preventDefault();
     let error;
+    const currentDate = moment().format("YYYY-MM-DD");
+
+    if (!moment(checkin).isBefore(checkout) && checkin !== checkout) {
+      error = "Please select a check-out date that is after check-in";
+      setError(error);
+    }
+    if (checkin < currentDate) {
+      error = "Please select a check-in date that is at earliest today";
+      setError(error);
+    }
 
     if (!error) {
       props.updateFormData(checkin, checkout, guests);
-    const currentDate = moment().format('YYYY-MM-DD')
 
-   if(!moment(checkin).isBefore(checkout)) return
-   if(checkin < currentDate){
-    console.log('Date must be today or in the future')
-    return
-   }
-
-
-    props.updateFormData(checkin, checkout, guests);
+      props.updateFormData(checkin, checkout, guests);
 
       getPlaceId();
       setTimeout(() => {
