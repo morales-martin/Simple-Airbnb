@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Form.css";
 import Button from "../ui/Button";
 import { useNavigate } from "react-router-dom";
@@ -10,8 +10,13 @@ const Form = (props) => {
   const [checkin, setCheckin] = useState([]);
   const [checkout, setCheckout] = useState([]);
   const [guests, setGuests] = useState([]);
+  const [error, setError] = useState("");
   const navigate = useNavigate();
   let placeId = "";
+
+  useEffect(() => {
+    setError("");
+  }, [location, checkin, checkout, guests]);
 
   const getPlaceId = async () => {
     placeId = await SearchProperty(location);
@@ -30,21 +35,18 @@ const Form = (props) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    let error;
 
-    console.log(checkin, checkout, guests)
-    props.updateFormData(checkin, checkout, guests);
+    if (!error) {
+      props.updateFormData(checkin, checkout, guests);
 
-    getPlaceId();
-    setTimeout(() => {
-      getProperties();
+      getPlaceId();
+      setTimeout(() => {
+        getProperties();
 
-      navigate("/results");
-    }, 1500);
-
-   
-
-    // props.diffDays(diffDays);
-    // console.log(props.diffDays);
+        navigate("/results");
+      }, 1500);
+    }
   };
 
   return (
@@ -55,6 +57,7 @@ const Form = (props) => {
           Enter your Airbnb preferences below and click Search to see your
           future stay!
         </div>
+        <span className="form-error">{error}</span>
         <form onSubmit={submitHandler} className="form-box">
           <div className="form-field">
             <label>Location</label>
