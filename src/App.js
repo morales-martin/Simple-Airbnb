@@ -19,7 +19,6 @@ function App() {
   
     let totalDays =
       Math.round(dateTwo.getTime() - dateOne.getTime()) / (1000 * 60 * 60 * 24);
-      console.log(totalDays)
       
     setFormData({
       checkin: checkin,
