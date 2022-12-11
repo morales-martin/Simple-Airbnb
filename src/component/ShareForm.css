@@ -38,3 +38,7 @@
     width: 80%;
     padding: 2% 3%;
 }
+
+.share-form-error {
+    color: red;
+}
