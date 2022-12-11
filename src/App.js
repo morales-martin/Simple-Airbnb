@@ -13,24 +13,19 @@ function App() {
   };
 
   const updateFormData = (checkin, checkout, guests) => {
-
     let dateOne = new Date(checkin);
     let dateTwo = new Date(checkout);
-  
+
     let totalDays =
       Math.round(dateTwo.getTime() - dateOne.getTime()) / (1000 * 60 * 60 * 24);
-      
+
     setFormData({
       checkin: checkin,
       checkout: checkout,
       guests: guests,
-      totalDays: totalDays
+      totalDays: totalDays,
     });
-
-  
   };
-
-
 
   return (
     <div className="App">

@@ -15,16 +15,22 @@ const ListItems = (props) => {
     setResults(originalList);
   }, [originalList]);
 
+  useEffect(() => {
+    let property = showModal ? "hidden" : "scroll";
+    document.body.style.overflow = property;
+    
+  }, [showModal]);
+
   const selectItemHandler = (listing) => {
     setSelectedItems((prevState) => {
-      return [...prevState,listing]
+      return [...prevState, listing];
     });
   };
 
   const deselectItemHandler = (id) => {
-    let newSelectedList = selectedItems.filter(item => item.id !== id)
+    let newSelectedList = selectedItems.filter((item) => item.id !== id);
 
-    setSelectedItems(newSelectedList)
+    setSelectedItems(newSelectedList);
   };
 
   let days = props.day;

@@ -10,30 +10,33 @@ function ShareModal(props) {
       <div className="share-modal-container">
         <div className="share-item-list">
           <div>
-            {props.selectedItems.map((item) => {
-              return (
-                <Card
-                  key={item.id}
-                  images={item.images}
-                  id={item.id}
-                  title={item.title}
-                  listingName={item.listingName}
-                  price={item.price}
-                  beds={item.beds}
-                  bathrooms={item.bathrooms}
-                  selectedItems={props.selectedItems}
-                  selectItemHandler={props.selectItemHandler}
-                  deselectItemHandler={props.deselectItemHandler}
-                  formData={props.formData}
-                ></Card>
-              );
-            })}
+            {props.selectedItems.length === 0
+              ? "No selected listings 😢"
+              : props.selectedItems.map((item) => {
+                  return (
+                    <Card
+                      key={item.id}
+                      images={item.images}
+                      id={item.id}
+                      title={item.title}
+                      listingName={item.listingName}
+                      price={item.price}
+                      beds={item.beds}
+                      bathrooms={item.bathrooms}
+                      selectedItems={props.selectedItems}
+                      selectItemHandler={props.selectItemHandler}
+                      deselectItemHandler={props.deselectItemHandler}
+                      formData={props.formData}
+                    ></Card>
+                  );
+                })}
           </div>
         </div>
-       
-        <ShareForm selectedItems={props.selectedItems} setShow={props.setShowModal} />
-      
-       
+
+        <ShareForm
+          selectedItems={props.selectedItems}
+          setShow={props.setShowModal}
+        />
       </div>
     </Modal>
   );

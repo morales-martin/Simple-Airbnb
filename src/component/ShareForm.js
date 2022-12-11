@@ -25,6 +25,11 @@ function ShareForm(props) {
       setError(error);
     }
 
+    if(!props.selectedItems.length) {
+      error = "Please select at least one AirBnb listing."
+      setError(error)
+    }
+
     if (!error.length) {
       let params = {
         email_list: emails.join(","),
