@@ -20,6 +20,10 @@ function App() {
     let totalDays =
       Math.round(dateTwo.getTime() - dateOne.getTime()) / (1000 * 60 * 60 * 24);
       
+      if(totalDays === 0){
+        totalDays = 1
+      }
+      
     setFormData({
       checkin: checkin,
       checkout: checkout,
