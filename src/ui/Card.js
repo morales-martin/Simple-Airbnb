@@ -6,7 +6,6 @@ function Card(props) {
   const [selected, setSelected] = useState(false);
 
   useEffect(() => {
-    // console.log(props.selectedItems);
     setSelected(false);
     for (let item of props.selectedItems) {
       if (item.id === props.id) setSelected(true);
@@ -24,7 +23,7 @@ function Card(props) {
         days: props.days,
         beds: props.beds,
         bathrooms: props.bathrooms,
-     
+        url: `https://airbnb.com/rooms/${props.id}?adults=${props.formData.guests}&check_in=${props.formData.checkin}&check_out=${props.formData.checkout}`,
       });
     } else {
       props.deselectItemHandler(props.id);
@@ -47,7 +46,15 @@ function Card(props) {
         <img className="card-img" src={props.images[0]} alt={props.id}></img>
       </div>
       <div className="card-description">
-        <div className="black listingName"><a rel="noreferrer" target="_blank" href={`https://airbnb.com/rooms/${props.id}?adults=${props.formData.guests}&check_in=${props.formData.checkin}&check_out=${props.formData.checkout}`}>{props.title}</a></div>
+        <div className="black listingName">
+          <a
+            rel="noreferrer"
+            target="_blank"
+            href={`https://airbnb.com/rooms/${props.id}?adults=${props.formData.guests}&check_in=${props.formData.checkin}&check_out=${props.formData.checkout}`}
+          >
+            {props.title}
+          </a>
+        </div>
         <div className="grey">{props.listingName}</div>
         <div className="black">
           <span className="priceperNight">{props.price}</span>/night &#8226;{" "}

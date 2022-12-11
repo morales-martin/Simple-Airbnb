@@ -16,7 +16,7 @@ function ShareForm(props) {
   const sendEmail = () => {
     let params = {
       email_list: emails.join(","),
-      airbnb_results: props.selectedItems,
+      airbnb_results: props.selectedItems.map(listing => listing.url).join("\r\n"),
       message: message
     };
 
