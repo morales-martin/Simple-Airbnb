@@ -1,12 +1,10 @@
 .contain {
-  width: 70rem;
+  max-width: 70rem;
+  width: 100vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-
   justify-content: center;
-  align-items: center;
-  
   padding: 5%;
 }

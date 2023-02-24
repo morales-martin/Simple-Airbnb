@@ -1,11 +1,3 @@
-.results__btn {
-  background-color: #ffffff;
-  color: #ff385c;
-  height: 3rem;
-  width: 12rem;
-  margin: 0.2em 1em;
-}
-
 .navbar {
   display: flex;
   flex-wrap: column;
@@ -13,7 +5,17 @@
   justify-content: space-between;
   margin: 1em 2%;
   margin: auto;
-  width: 70%;
+  width: 80%;
+  position: fixed;
+
+  z-index: 100;
+}
+.results__btn {
+  background-color: #ffffff;
+  color: #ff385c;
+  height: 3rem;
+  width: 12rem;
+  margin: 0.2em 1em;
 }
 
 .navbar-right {
@@ -34,7 +36,6 @@
   /* pointer-events: none; */
   transform: translateY(-10px);
   transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
-  z-index: 100;
 }
 
 .navbar__sort_menu button {
@@ -44,4 +45,15 @@
 .navbar_sort__container > .link:focus + .navbar__sort_menu {
   opacity: 1;
   transform: translateY(0);
+}
+
+@media (max-width: 600px) {
+  .navbar__sort_menu {
+    width: 4rem;
+  }
+
+  .results__btn {
+    height: 2rem;
+    width: 6rem;
+  }
 }

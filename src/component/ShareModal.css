@@ -15,4 +15,10 @@
   margin: auto;
 }
 
+@media (max-width: 600px) {
+  .share-item-list {
+    display: none;
+  }
+}
+
 

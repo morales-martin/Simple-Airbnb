@@ -37,7 +37,7 @@ function Toolbar(props) {
   return (
     <div className="navbar">
       <Button className="results__btn" onClick={backSubmitHandler}>
-        Back to Search
+        Back
       </Button>
       <div className="navbar-right">
         <div className="navbar_sort__container">

@@ -6,20 +6,20 @@
 .form {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  max-width: 40rem;
   align-items: center;
+  align-self: center;
 }
 
 .form-box {
-  margin-top: 10px;
-  width: 30rem;
-  padding: 10px;
+  width: 90%;
 }
 
 .form-header {
   align-items: center;
   text-align: center;
-  width: 40%;
+  width: 60%;
+  color: #FF385C;
 }
 
 .form-field {

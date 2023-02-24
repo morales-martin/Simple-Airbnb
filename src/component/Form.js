@@ -87,29 +87,25 @@ const Form = (props) => {
           <div className="form-field">
             <label>Check In</label>
             <input
-              type="text"
+              type="date"
               value={checkin}
               onChange={(e) => setCheckin(e.target.value)}
               className="form-input checkin"
               name="Check In"
               required={true}
               placeholder="MM/DD/YYYY"
-              onFocus={(e) => (e.target.type = "date")}
-              onBlur={(e) => (e.target.type = "text")}
             />
           </div>
           <div className="form-field">
             <label>Check Out</label>
             <input
               value={checkout}
-              type="text"
+              type="date"
               onChange={(e) => setCheckout(e.target.value)}
               className="form-input checkout"
               name="Check Out"
               required={true}
               placeholder="MM/DD/YYYY"
-              onFocus={(e) => (e.target.type = "date")}
-              onBlur={(e) => (e.target.type = "text")}
             />
           </div>
           <div className="form-field">
